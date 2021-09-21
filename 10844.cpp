@@ -6,17 +6,17 @@ const int modNum = 1000000000;
 int dfs(int depth, int num) {
 	if (depth == n)return 1;
 	int* ret = &dp[depth][num];
-	if (*ret > 0)return ret;
-	if (num > 0) *ret += (dfs(depth + 1, num - 1)%modNum);
-	if (num <= 8) *ret += (dfs(depth + 1, num + 1)%modNum);
+	if (*ret > 0)return *ret;
+	if (num > 0) *ret += (dfs(depth + 1, num - 1) % modNum);
+	if (num <= 8) *ret += (dfs(depth + 1, num + 1) % modNum);
 	return *ret;
 }
-int sol() {
-	int ret = 0;
+long long sol() {
+	long long  ret = 0;
 	for (int i = 1;i <= 9;i++) {
-		ret+=(dfs(1, i)%modNum);
+		ret += (dfs(1, i) % modNum);
 	}
-	return ret;
+	return ret % modNum;
 }
 int main(void) {
 	cin >> n;
