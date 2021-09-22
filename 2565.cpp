@@ -23,7 +23,7 @@ int main(void) {
 		for (int j = 0;j < i;j++)
 			if (lis[j] < lis[i])
 				min = max(dp[j], min);
-		dp[i] = min + 1;
+		dp[i] = min + 1;	
 		maxVal = max(maxVal, dp[i]);
 	}
 	cout << n - maxVal;
